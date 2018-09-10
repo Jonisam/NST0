@@ -1,26 +1,14 @@
 import { PersonaService } from './../persona.service';
 import { Component, OnInit } from '@angular/core';
 import { Persona } from '../persona';
-import { trigger, transition, style, animate, state } from '@angular/animations';
+
 
 @Component({
   selector: 'app-empresa',
   templateUrl: './empresa.component.html',
-  styleUrls: ['./empresa.component.css'],
-  animations: [
-    trigger('animationOpen', [
-      transition(':enter', [
-        style({ border: 'yellow' }),
-        animate(300)
-      ]),
-      transition(':leave', [
-        animate(300, style({ border: 'yellow' }))
-      ]),
-      state('*', style({ border: 'green' })),
-    ])
-
-  ]
+  styleUrls: ['./empresa.component.css']
 })
+
 export class EmpresaComponent implements OnInit {
 
   personas: Persona[];

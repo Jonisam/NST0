@@ -8,7 +8,7 @@
       <mat-icon aria-label="Example icon-button with a add icon">add</mat-icon>
     </button>
   </section>
-  <section *ngIf="!muestraPersonas" [@animationOpen]="muestraPersonas ? 'close': 'open'">
+  <section *ngIf="!muestraPersonas">
     <app-formulario-persona (cancel)="formularioPersona($event)" (send)="agregaPersona($event)" ></app-formulario-persona>
   </section>
 </div>
