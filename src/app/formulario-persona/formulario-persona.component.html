@@ -1,0 +1,35 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Nueva Persona
+    </mat-card-title>
+  </mat-card-header>
+
+  <form (ngSubmit)="savePersona()" #personaForm="ngForm">
+    <div class="row">
+      <mat-form-field appearance="outline" class="col-xs-12">
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="persona.nombre" name="nombre" placeholder="Nombre" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="col-xs-12">
+        <mat-label>Edad</mat-label>
+        <input matInput [(ngModel)]="persona.edad" name="edad" min="1" max="100" placeholder="Edad" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="col-xs-12">
+        <mat-label>Frase</mat-label>
+        <textarea matInput [(ngModel)]="persona.frase" name="frase" rows="10" placeholder="Frase" required></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="block text-right">
+      <button type="button" (click)="closeForm()" mat-raised-button color="warn">Cancel</button>
+      <button type="submit" [disabled]="!personaForm.form.valid" mat-raised-button>Save</button>
+    </div>
+
+  </form>
+
+
+</mat-card>
+

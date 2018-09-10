@@ -1,7 +1,9 @@
 import { Direccion } from './direccion';
 export class Persona {
-  nombre: string;
-  edad: number;
-  frase: string;
-  direccion: Direccion;
+  constructor(
+    public nombre: string,
+    public edad: number,
+    public frase: string,
+    public direccion?: Direccion
+  ) { }
 }

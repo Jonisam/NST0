@@ -2,6 +2,24 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+body { margin: 0; font-family: 'Roboto', sans-serif; background-color: #DCDCDC; }
 
+.text-center{
+  text-align: center;
+}
 
+.text-right{
+  text-align: right;
+}
+
+.text-left{
+  text-align: left;
+}
+
+.block{
+  display: block;
+}
+
+.margin-bottom-5{
+  margin-bottom: 5px;
+}

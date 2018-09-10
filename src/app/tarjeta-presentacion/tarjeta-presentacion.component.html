@@ -7,7 +7,7 @@
       {{ empleado.frase }}
     </mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content>
+  <mat-card-content *ngIf="empleado.direccion">
     <h2>Dirección</h2>
     <div>Calle: {{ empleado.direccion.calle }}</div>
     <div>Colonia: {{ empleado.direccion.colonia }}</div>

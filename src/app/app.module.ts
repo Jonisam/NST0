@@ -8,6 +8,8 @@ import { TarjetaPresentacionComponent } from './tarjeta-presentacion/tarjeta-pre
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { FormularioPersonaComponent } from './formulario-persona/formulario-persona.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { MaterialModule } from './material/material.module';
     HeaderComponent,
     EmpresaComponent,
     TarjetaPresentacionComponent,
-    FooterComponent
+    FooterComponent,
+    FormularioPersonaComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

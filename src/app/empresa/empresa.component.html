@@ -1,3 +1,15 @@
-<div class="container" *ngFor="let persona of personas">
-  <app-tarjeta-presentacion [empleado]="persona"></app-tarjeta-presentacion>
+<div class="container">
+  <section *ngIf="muestraPersonas">
+    <div *ngFor="let persona of personas" class="margin-bottom-5">
+      <app-tarjeta-presentacion [empleado]="persona"></app-tarjeta-presentacion>
+    </div>
+
+    <button mat-fab (click)="formularioPersona()" class="bottom-right">
+      <mat-icon aria-label="Example icon-button with a add icon">add</mat-icon>
+    </button>
+  </section>
+  <section *ngIf="!muestraPersonas" [@animationOpen]="muestraPersonas ? 'close': 'open'">
+    <app-formulario-persona (cancel)="formularioPersona($event)" (send)="agregaPersona($event)" ></app-formulario-persona>
+  </section>
 </div>
+
