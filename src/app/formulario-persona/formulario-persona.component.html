@@ -1,35 +1,39 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>
-      Nueva Persona
-    </mat-card-title>
-  </mat-card-header>
+<h2>Nueva Persona</h2>
+<form (ngSubmit)="savePersona()" #personaForm="ngForm">
+  <div class="row">
+    <mat-form-field appearance="outline" class="col-xs-12">
+      <mat-label>Nombre</mat-label>
+      <input matInput [(ngModel)]="persona.nombre" minlength="3" name="nombre" placeholder="Nombre" #nombre="ngModel" required>
+      <mat-error *ngIf="nombre.invalid">
+        <span *ngIf="nombre.errors.required"> El campo es requerido </span>
+        <span *ngIf="nombre.errors.minlength"> el nombre debe tener al menos 3 caracteres </span>
+      </mat-error>
+    </mat-form-field>
 
-  <form (ngSubmit)="savePersona()" #personaForm="ngForm">
-    <div class="row">
-      <mat-form-field appearance="outline" class="col-xs-12">
-        <mat-label>Nombre</mat-label>
-        <input matInput [(ngModel)]="persona.nombre" name="nombre" placeholder="Nombre" required>
-      </mat-form-field>
+    <mat-form-field appearance="outline" class="col-xs-12">
+      <mat-label>Edad</mat-label>
+      <input matInput [(ngModel)]="persona.edad" name="edad" pattern="[1-9][8-9]|[2-9][0-9]" placeholder="Edad" #edad="ngModel" required>
+      <mat-error *ngIf="edad.invalid">
+        <span *ngIf="edad.errors.required"> El campo es requerido </span>
+        <span *ngIf="edad.errors.pattern"> la edad debe ser mayor a 18 y menor a 100 </span>
+      </mat-error>
+    </mat-form-field>
 
-      <mat-form-field appearance="outline" class="col-xs-12">
-        <mat-label>Edad</mat-label>
-        <input matInput [(ngModel)]="persona.edad" name="edad" min="1" max="100" placeholder="Edad" required>
-      </mat-form-field>
+    <mat-form-field appearance="outline" class="col-xs-12">
+      <mat-label>Frase</mat-label>
+      <textarea matInput [(ngModel)]="persona.frase" minlength="10" maxlength="300" name="frase" rows="10" placeholder="Frase"  #frase="ngModel" required></textarea>
+      <mat-error *ngIf="frase.invalid">
+        <span *ngIf="frase.errors.required"> El campo es requerido </span>
+        <span *ngIf="frase.errors.minlength"> la frase debe tener al menos 10 caracteres </span>
+        <span *ngIf="frase.errors.maxlength"> la frase debe tener menos 300 caracteres </span>
+      </mat-error>
+    </mat-form-field>
+  </div>
 
-      <mat-form-field appearance="outline" class="col-xs-12">
-        <mat-label>Frase</mat-label>
-        <textarea matInput [(ngModel)]="persona.frase" name="frase" rows="10" placeholder="Frase" required></textarea>
-      </mat-form-field>
-    </div>
+  <div class="block text-right">
+    <button type="button" (click)="closeForm()" mat-raised-button color="warn">Cancel</button>
+    <button type="submit" [disabled]="!personaForm.form.valid" mat-raised-button>Save</button>
+  </div>
 
-    <div class="block text-right">
-      <button type="button" (click)="closeForm()" mat-raised-button color="warn">Cancel</button>
-      <button type="submit" [disabled]="!personaForm.form.valid" mat-raised-button>Save</button>
-    </div>
-
-  </form>
-
-
-</mat-card>
+</form>
 

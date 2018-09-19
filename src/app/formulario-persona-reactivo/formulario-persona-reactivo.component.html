@@ -1,0 +1,42 @@
+<h2>Nueva Persona</h2>
+<form (ngSubmit)="savePersona()" [formGroup]="personaForm" >
+  <div class="row">
+    <mat-form-field appearance="outline" class="col-xs-12">
+      <mat-label>Nombre</mat-label>
+      <input matInput  name="nombre" formControlName="nombre" required>
+      <mat-error *ngIf="f.nombre.invalid && (f.nombre.dirty || f.nombre.touched)">
+        <span *ngIf="f.nombre.errors.required"> El campo es requerido </span>
+        <span *ngIf="f.nombre.errors.minlength"> el nombre debe tener al menos 3 caracteres </span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-xs-12">
+      <mat-label>Edad</mat-label>
+      <input matInput  name="edad" formControlName="edad" required>
+      <mat-error *ngIf="f.edad.invalid && (f.edad.dirty || f.edad.touched)">
+        <span *ngIf="f.edad.errors.required"> El campo es requerido </span>
+        <span *ngIf="f.edad.errors.min"> la edad debe ser mayor a 18 </span>
+        <span *ngIf="f.edad.errors.max"> la edad debe ser menor a 100 </span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-xs-12">
+      <mat-label>Frase</mat-label>
+      <textarea matInput  name="frase" formControlName="frase" required rows="10"></textarea>
+      <mat-error *ngIf="f.frase.invalid && (f.frase.dirty || f.frase.touched)">
+        <span *ngIf="f.frase.errors.required"> El campo es requerido </span>
+        <span *ngIf="f.frase.errors.minlength"> la frase debe tener al menos 10 caracteres </span>
+        <span *ngIf="f.frase.errors.maxlength"> la frase debe tener menos 300 caracteres </span>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+
+
+  <div class="block text-right">
+    <button type="button" (click)="closeForm()" mat-raised-button color="warn">Cancel</button>
+    <button type="submit" [disabled]="!personaForm.valid" mat-raised-button>Save</button>
+  </div>
+
+</form>
+

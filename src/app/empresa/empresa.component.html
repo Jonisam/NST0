@@ -9,7 +9,18 @@
     </button>
   </section>
   <section *ngIf="!muestraPersonas">
-    <app-formulario-persona (cancel)="formularioPersona($event)" (send)="agregaPersona($event)" ></app-formulario-persona>
+      <mat-card>
+        <mat-card-content>
+          <mat-tab-group>
+            <mat-tab label="Form Validations">
+              <app-formulario-persona class="margin-top-5" (cancel)="formularioPersona($event)" (send)="agregaPersona($event)"></app-formulario-persona>
+            </mat-tab>
+            <mat-tab label="Reactive Form">
+              <app-formulario-persona-reactivo class="margin-top-5" (cancel)="formularioPersona($event)" (send)="agregaPersona($event)"></app-formulario-persona-reactivo>
+            </mat-tab>
+          </mat-tab-group>
+        </mat-card-content>
+      </mat-card>
   </section>
 </div>
 

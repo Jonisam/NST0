@@ -9,7 +9,8 @@ import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FormularioPersonaComponent } from './formulario-persona/formulario-persona.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormularioPersonaReactivoComponent } from './formulario-persona-reactivo/formulario-persona-reactivo.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,15 @@ import { FormsModule } from '@angular/forms';
     EmpresaComponent,
     TarjetaPresentacionComponent,
     FooterComponent,
-    FormularioPersonaComponent
+    FormularioPersonaComponent,
+    FormularioPersonaReactivoComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
