@@ -11,6 +11,8 @@ import { MaterialModule } from './material/material.module';
 import { FormularioPersonaComponent } from './formulario-persona/formulario-persona.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormularioPersonaReactivoComponent } from './formulario-persona-reactivo/formulario-persona-reactivo.component';
+import { TablePostComponentComponent } from './table-post-component/table-post-component.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,14 +22,16 @@ import { FormularioPersonaReactivoComponent } from './formulario-persona-reactiv
     TarjetaPresentacionComponent,
     FooterComponent,
     FormularioPersonaComponent,
-    FormularioPersonaReactivoComponent
+    FormularioPersonaReactivoComponent,
+    TablePostComponentComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

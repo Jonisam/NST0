@@ -1,26 +1,34 @@
 <div class="container">
-  <section *ngIf="muestraPersonas">
-    <div *ngFor="let persona of personas" class="margin-bottom-5">
-      <app-tarjeta-presentacion [empleado]="persona"></app-tarjeta-presentacion>
-    </div>
 
-    <button mat-fab (click)="formularioPersona()" class="bottom-right">
-      <mat-icon aria-label="Example icon-button with a add icon">add</mat-icon>
-    </button>
-  </section>
-  <section *ngIf="!muestraPersonas">
-      <mat-card>
-        <mat-card-content>
-          <mat-tab-group>
-            <mat-tab label="Form Validations">
-              <app-formulario-persona class="margin-top-5" (cancel)="formularioPersona($event)" (send)="agregaPersona($event)"></app-formulario-persona>
-            </mat-tab>
-            <mat-tab label="Reactive Form">
-              <app-formulario-persona-reactivo class="margin-top-5" (cancel)="formularioPersona($event)" (send)="agregaPersona($event)"></app-formulario-persona-reactivo>
-            </mat-tab>
-          </mat-tab-group>
-        </mat-card-content>
-      </mat-card>
-  </section>
+  <mat-tab-group>
+    <mat-tab label="Directorio">
+      <section *ngIf="muestraPersonas">
+        <div *ngFor="let persona of personas" class="margin-bottom-5">
+          <app-tarjeta-presentacion [empleado]="persona"></app-tarjeta-presentacion>
+        </div>
+
+        <button mat-fab (click)="formularioPersona()" class="bottom-right">
+          <mat-icon aria-label="Example icon-button with a add icon">add</mat-icon>
+        </button>
+      </section>
+      <section *ngIf="!muestraPersonas">
+          <mat-card>
+            <mat-card-content>
+              <mat-tab-group>
+                <mat-tab label="Form Validations">
+                  <app-formulario-persona class="margin-top-5" (cancel)="formularioPersona($event)" (send)="agregaPersona($event)"></app-formulario-persona>
+                </mat-tab>
+                <mat-tab label="Reactive Form">
+                  <app-formulario-persona-reactivo class="margin-top-5" (cancel)="formularioPersona($event)" (send)="agregaPersona($event)"></app-formulario-persona-reactivo>
+                </mat-tab>
+              </mat-tab-group>
+            </mat-card-content>
+          </mat-card>
+      </section>
+    </mat-tab>
+    <mat-tab label="Post">
+      <app-table-post-component></app-table-post-component>
+    </mat-tab>
+  </mat-tab-group>
 </div>
 
